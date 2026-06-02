@@ -74,7 +74,7 @@ namespace PRN232.LMS.API.Controllers
                 return NotFound(result);
             }
 
-            return Ok(result);
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
@@ -88,7 +88,7 @@ namespace PRN232.LMS.API.Controllers
                 return NotFound(result);
             }
 
-            return Ok(result);
+            return NoContent();
         }
     }
 }

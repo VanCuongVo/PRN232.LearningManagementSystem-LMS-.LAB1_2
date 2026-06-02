@@ -67,7 +67,11 @@ namespace PRN232.LMS.API.Controllers
             var result =
                 await _courseService.CreateAsync(request);
 
-            return Ok(result);
+
+            return CreatedAtAction(
+                nameof(GetById),
+                new { id = result.Data.CourseId },
+                result);
         }
 
         [HttpPut("{id}")]
@@ -80,7 +84,7 @@ namespace PRN232.LMS.API.Controllers
                 return NotFound(result);
             }
 
-            return Ok(result);
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
@@ -94,7 +98,7 @@ namespace PRN232.LMS.API.Controllers
                 return NotFound(result);
             }
 
-            return Ok(result);
+            return NoContent();
         }
     }
 }

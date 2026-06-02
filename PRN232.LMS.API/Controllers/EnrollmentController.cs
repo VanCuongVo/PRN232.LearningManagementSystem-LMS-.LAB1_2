@@ -102,7 +102,7 @@ public class EnrollmentController : ControllerBase
                 return NotFound(result);
             }
 
-            return Ok(result);
+            return NoContent();
         }
         catch (Exception ex)
         {

@@ -3,9 +3,9 @@ using PRN232.LMS.Models.RequestModel;
 
 namespace PRN232.LMS.Services.Validators.SubjectValidators
 {
-    public class UpdateStudentRequestValidator : AbstractValidator<UpdateSubjectRequest>
+    public class UpdateSubjectRequestValidator : AbstractValidator<UpdateSubjectRequest>
     {
-        public UpdateStudentRequestValidator()
+        public UpdateSubjectRequestValidator()
         {
             RuleFor(x => x.Credit).InclusiveBetween(1, 10);
             RuleFor(x => x.SubjectName).NotEmpty().MinimumLength(3).MaximumLength(50);
