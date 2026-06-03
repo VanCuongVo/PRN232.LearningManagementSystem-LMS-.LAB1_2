@@ -18,4 +18,8 @@ public partial class Student
     public string Studentcode { get; set; } = null!;
     public int Age { get; set; }
     public string Phonenumber { get; set; } = null!;
+
+    // Navigation
+    public ICollection<User> Users { get; set; }
+        = new List<User>();
 }

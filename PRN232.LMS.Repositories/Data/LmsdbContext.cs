@@ -28,4 +28,9 @@ public partial class LmsdbContext : DbContext
 
     public DbSet<ApiLog> ApiLogs { get; set; }
 
+    public DbSet<User> Users { get; set; }
+
+    public DbSet<RefreshToken> RefreshTokens { get; set; }
+
+
 }

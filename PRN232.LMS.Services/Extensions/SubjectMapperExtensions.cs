@@ -16,7 +16,6 @@ namespace PRN232.LMS.Services.Extensions
             };
         }
 
-
         public static IEnumerable<SubjectResponse> ToSubjectResponseList(this IEnumerable<Subject> subjects)
         {
             return subjects.Select(x => x.ToSubjectResponse()).ToList();

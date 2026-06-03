@@ -16,6 +16,8 @@ namespace PRN232.LMS.Repositories.IRepositories
 
         IEnrollmentRepositories Enrollments { get; }
 
+        IUserRepository Users { get; }
+
 
     }
 }

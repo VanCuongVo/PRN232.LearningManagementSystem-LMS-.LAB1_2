@@ -11,8 +11,6 @@ namespace PRN232.LMS.API.Middlewares
                 c.RoutePrefix = "swagger"; // serve UI at /swagger
             });
             return app;
-
         }
-
     }
 }

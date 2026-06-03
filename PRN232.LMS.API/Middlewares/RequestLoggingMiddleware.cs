@@ -29,10 +29,8 @@ namespace PRN232.LMS.API.Middlewares
                 ExecutionTimeMs = sw.ElapsedMilliseconds,
                 CreatedAt = DateTime.UtcNow
             };
-
             dbContext.ApiLogs.Add(log);
             await dbContext.SaveChangesAsync();
-
         }
     }
 }

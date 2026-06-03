@@ -17,13 +17,16 @@ namespace PRN232.LMS.Repositories.Repositories
 
         public IEnrollmentRepositories Enrollments { get; }
 
+        public IUserRepository Users { get; }
+
         public UnitOfWork(
             LmsdbContext context,
             IStudentRepositories students,
             ISubjectRepositories subjects,
             ISemestersRepositories semesters,
             ICourseRepository courses,
-            IEnrollmentRepositories enrollments
+            IEnrollmentRepositories enrollments,
+            IUserRepository users
             )
         {
             _context = context;
@@ -32,6 +35,7 @@ namespace PRN232.LMS.Repositories.Repositories
             Semesters = semesters;
             Courses = courses;
             Enrollments = enrollments;
+            Users = users;
         }
 
         public async Task<int> SaveChangesAsync()
