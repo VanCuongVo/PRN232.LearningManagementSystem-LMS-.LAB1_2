@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using PRN232.LMS.Models.Custom;
 
 namespace PRN232.LMS.Models.RequestModel
 {
@@ -12,6 +13,7 @@ namespace PRN232.LMS.Models.RequestModel
         public int SemesterId { get; set; }
         [Required(ErrorMessage = "CourseCode is required")]
         [RegularExpression(@"^[A-Z]{3}\d{3}$", ErrorMessage = "CourseCode must be like PRN232")]
+        [Coursecode]
         public string Coursecode { get; set; } = null!;
     }
 }

@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using PRN232.LMS.Services.Custom;
 
 namespace PRN232.LMS.Models.RequestModel
 {
@@ -18,6 +19,7 @@ namespace PRN232.LMS.Models.RequestModel
         public string Phonenumber { get; set; } = null!;
         [Required]
         [RegularExpression(@"^[A-Z]{2}\d{5}$", ErrorMessage = "StudentCode must be like SE19886")]
+        [StudentCode(ErrorMessage = "Student code must be SE/CE/AI + 5 digits (ex: SE19886)")]
         public string Studentcode { get; set; } = null!;
     }
 }

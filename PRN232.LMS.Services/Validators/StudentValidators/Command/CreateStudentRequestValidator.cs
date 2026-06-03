@@ -13,5 +13,7 @@ namespace PRN232.LMS.Services.Validators
             RuleFor(x => x.Studentcode).Matches(@"^[A-Z]{2}\d{5}$").WithMessage("StudentCode must be like SE19886");
             RuleFor(x => x.Phonenumber).NotEmpty().Matches(@"^(0|\+84)[0-9]{9}$").WithMessage("Phone number is invalid");
         }
+        
+
     }
 }
