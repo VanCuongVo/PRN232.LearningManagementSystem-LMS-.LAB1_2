@@ -47,7 +47,7 @@ namespace PRN232.LMS.Services.Services
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddMinutes(15), // Token hết hạn sau 15 phút
+                Expires = DateTime.UtcNow.AddMinutes(60), // Token hết hạn sau 60 phút
                 Issuer = jwtSettings["Issuer"],
                 Audience = jwtSettings["Audience"],
                 SigningCredentials = new SigningCredentials(

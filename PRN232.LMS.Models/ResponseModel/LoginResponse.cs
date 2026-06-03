@@ -7,8 +7,6 @@ namespace PRN232.LMS.Models.ResponseModel
 {
     public class LoginResponse
     {
-        public bool Success { get; set; }
-
         public string AccessToken { get; set; } = string.Empty;
 
         public string RefreshToken { get; set; } = string.Empty;

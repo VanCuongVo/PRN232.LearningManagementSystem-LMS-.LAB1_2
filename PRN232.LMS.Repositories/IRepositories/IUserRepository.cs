@@ -8,6 +8,6 @@ namespace PRN232.LMS.Repositories.IRepositories
 
         Task<User?> GetByEmailAsync(string email);
 
-        Task<RefreshToken?> GetByTokenAsync(string token);
+
     }
 }

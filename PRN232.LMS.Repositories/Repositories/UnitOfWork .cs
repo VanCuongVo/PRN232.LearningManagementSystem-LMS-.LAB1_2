@@ -19,6 +19,8 @@ namespace PRN232.LMS.Repositories.Repositories
 
         public IUserRepository Users { get; }
 
+        public IRefreshTokenRepositories RefreshTokens { get; }
+
         public UnitOfWork(
             LmsdbContext context,
             IStudentRepositories students,
@@ -26,8 +28,8 @@ namespace PRN232.LMS.Repositories.Repositories
             ISemestersRepositories semesters,
             ICourseRepository courses,
             IEnrollmentRepositories enrollments,
-            IUserRepository users
-            )
+            IUserRepository users,
+            IRefreshTokenRepositories refreshTokens)
         {
             _context = context;
             Students = students;
@@ -36,6 +38,7 @@ namespace PRN232.LMS.Repositories.Repositories
             Courses = courses;
             Enrollments = enrollments;
             Users = users;
+            RefreshTokens = refreshTokens;
         }
 
         public async Task<int> SaveChangesAsync()
