@@ -27,6 +27,7 @@ var app = builder.Build();
 // DB migrate + seed
 // await app.InitialiseDatabaseAsync();
 app.UseSwaggerConfiguration();
+app.UseRequestLogging();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseGlobalException();

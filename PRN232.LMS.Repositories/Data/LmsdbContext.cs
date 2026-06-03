@@ -26,4 +26,6 @@ public partial class LmsdbContext : DbContext
 
     public virtual DbSet<Subject> Subjects { get; set; }
 
+    public DbSet<ApiLog> ApiLogs { get; set; }
+
 }

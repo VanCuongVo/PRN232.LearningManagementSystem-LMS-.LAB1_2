@@ -5,8 +5,6 @@ namespace PRN232.LMS.Services.Extensions
 {
     public static class CourseMapperExtension
     {
-
-
         public static CourseEnrollmentResponse ToCourseEnrollmentResponse(this Enrollment enrollment)
         {
             return new CourseEnrollmentResponse
