@@ -13,8 +13,11 @@ namespace PRN232.LMS.API.Controllers
     "text/csv",
     "text/html"
 )]
-    [Route("api/subjects")]
+
     [ApiController]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/subjects")]
+
     public class SubjectController : ControllerBase
     {
         private readonly ISubjectService _subjectService;
@@ -31,7 +34,7 @@ namespace PRN232.LMS.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult> GetById(int id)
         {
             var result = await _subjectService.GetByIdAysnc(id);
@@ -48,14 +51,14 @@ namespace PRN232.LMS.API.Controllers
             }, result);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public async Task<ActionResult> Update(int id, [FromBody] UpdateSubjectRequest request)
         {
             await _subjectService.UpdateAsync(id, request);
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)
         {
             await _subjectService.DeleteAsync(id);

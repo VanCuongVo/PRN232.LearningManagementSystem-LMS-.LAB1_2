@@ -5,6 +5,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Content Negotation
 builder.Services.AddMvcConfiguration();
+builder.Services.AddControllers();
+// API versioning
+builder.Services.AddApiVersion();
 
 // Swagger
 builder.Services.AddEndpointsApiExplorer();

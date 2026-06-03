@@ -13,8 +13,10 @@ namespace PRN232.LMS.API.Controllers
     "text/csv",
     "text/html"
 )]
-    [Route("api/courses")]
     [ApiController]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/courses")]
+
     public class CourseController : ControllerBase
     {
         private readonly ICourseService _courseService;
@@ -32,7 +34,7 @@ namespace PRN232.LMS.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult> GetById(int id)
         {
             var result =
@@ -50,7 +52,7 @@ namespace PRN232.LMS.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{id}/enrollments")]
+        [HttpGet("{id:int}/enrollments")]
         public async Task<IActionResult> GetEnrollments(
        int id,
        [FromQuery] QueryParameters query)
@@ -74,7 +76,7 @@ namespace PRN232.LMS.API.Controllers
                 result);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public async Task<ActionResult> Update(int id, [FromBody] UpdateCourseRequest request)
         {
             var result = await _courseService.UpdateAsync(id, request);
@@ -87,7 +89,7 @@ namespace PRN232.LMS.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)
         {
             var result =

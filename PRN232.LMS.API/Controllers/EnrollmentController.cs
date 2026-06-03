@@ -13,8 +13,10 @@ namespace PRN232.LMS.API.Controllers;
     "text/csv",
     "text/html"
 )]
-[Route("api/enrollments")]
 [ApiController]
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/enrollments")]
+
 public class EnrollmentController : ControllerBase
 {
     private readonly IEnrollmentService _enrollmentService;
@@ -33,7 +35,7 @@ public class EnrollmentController : ControllerBase
         return Ok(result);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id:int}")]
     public async Task<ActionResult<EnrollmentResponse>> GetById(int id)
     {
         var result = await _enrollmentService.GetByIdAsync(id);
@@ -79,7 +81,7 @@ public class EnrollmentController : ControllerBase
         }
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("{id:int}")]
     public async Task<ActionResult<ApiResponse<EnrollmentResponse?>>> Update(
         int id,
         [FromBody] UpdateEnrollmentRequest request)

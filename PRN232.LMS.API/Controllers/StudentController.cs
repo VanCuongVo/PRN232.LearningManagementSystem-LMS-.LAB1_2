@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using PRN232.LMS.Models.RequestModel;
 using PRN232.LMS.Models.ResponseModel;
 using PRN232.LMS.Services.IServices;
+
 
 namespace PRN232.LMS.API.Controllers
 {
@@ -15,8 +14,9 @@ namespace PRN232.LMS.API.Controllers
     "text/csv",
     "text/html"
 )]
-    [Route("api/students")]
     [ApiController]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/students")]
     public class StudentController : ControllerBase
     {
         private readonly IStudentService _studentService;
@@ -32,7 +32,7 @@ namespace PRN232.LMS.API.Controllers
             var result = await _studentService.GetAllAsync(query);
             return Ok(result);
         }
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
 
@@ -73,7 +73,7 @@ namespace PRN232.LMS.API.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public async Task<IActionResult> Update(int id, [FromBody] UpdateStudentRequest request)
         {
             try
@@ -96,7 +96,7 @@ namespace PRN232.LMS.API.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new { message = ex.Message });
             }
         }
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {
             await _studentService.DeleteAsync(id);

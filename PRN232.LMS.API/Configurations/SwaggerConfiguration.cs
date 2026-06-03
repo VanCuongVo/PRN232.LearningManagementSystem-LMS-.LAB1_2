@@ -14,6 +14,7 @@ namespace PRN232.LMS.API.Configurations
                 options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "PRN232.LMS API", Version = "v1" });
                 options.OperationFilter<LowercaseQueryParameterFilter>();
                 options.OperationFilter<ProducesResponseTypeOperationFilter>();
+
             });
             return services;
         }
