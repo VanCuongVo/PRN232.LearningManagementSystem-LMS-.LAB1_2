@@ -1,5 +1,4 @@
-﻿using PRN232.LMS.Models.Entities;
-using PRN232.LMS.Repositories.Repositories;
+﻿using PRN232.LMS.Repositories.Repositories;
 
 namespace PRN232.LMS.Repositories.IRepositories
 {
@@ -16,9 +15,7 @@ namespace PRN232.LMS.Repositories.IRepositories
 
         IEnrollmentRepositories Enrollments { get; }
 
-        IUserRepository Users { get; }
+        IUserRepositories Users { get; }
         IRefreshTokenRepositories RefreshTokens { get; }
-
-
     }
 }

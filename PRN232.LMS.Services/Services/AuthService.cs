@@ -19,9 +19,8 @@ namespace PRN232.LMS.Services.Services
 
         public async Task<ApiResponse<LoginResponse>> LoginAsync(LoginRequest request)
         {
-            var user = await _unitOfWork.Users.GetByUsernameAsync(request.Username);
-            if (user == null || !BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
-                return null;
+            var user = await _unitOfWork.Users.GetByUsernameAsync(request.UserName);
+            if (user == null || !BCrypt.Net.BCrypt.Verify(request.PassWord, user.PasswordHash)) return null;
             var token = _jwtService.GenerateToken(new UserRequest
             {
                 Id = user.UserId,
@@ -48,10 +47,8 @@ namespace PRN232.LMS.Services.Services
                     AccessToken = token,
                     RefreshToken = refreshToken,
                     ExpiresIn = (int)TimeSpan.FromMinutes(60).TotalSeconds
-
                 }
             };
-
         }
 
         public async Task<ApiResponse<LoginResponse>> RefreshTokenAsync(RefreshTokenRequest request)

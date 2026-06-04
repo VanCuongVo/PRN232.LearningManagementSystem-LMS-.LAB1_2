@@ -17,7 +17,7 @@ namespace PRN232.LMS.Repositories.Repositories
 
         public IEnrollmentRepositories Enrollments { get; }
 
-        public IUserRepository Users { get; }
+        public IUserRepositories Users { get; }
 
         public IRefreshTokenRepositories RefreshTokens { get; }
 
@@ -28,7 +28,7 @@ namespace PRN232.LMS.Repositories.Repositories
             ISemestersRepositories semesters,
             ICourseRepository courses,
             IEnrollmentRepositories enrollments,
-            IUserRepository users,
+            IUserRepositories users,
             IRefreshTokenRepositories refreshTokens)
         {
             _context = context;

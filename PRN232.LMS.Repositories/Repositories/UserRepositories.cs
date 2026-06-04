@@ -9,9 +9,9 @@ using PRN232.LMS.Repositories.IRepositories;
 
 namespace PRN232.LMS.Repositories.Repositories
 {
-    public class UserRepository : GenericRepositories<User>, IUserRepository
+    public class UserRepositories : GenericRepositories<User>, IUserRepositories
     {
-        public UserRepository(LmsdbContext lmsdbContext) : base(lmsdbContext)
+        public UserRepositories(LmsdbContext lmsdbContext) : base(lmsdbContext)
         {
         }
 

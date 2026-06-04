@@ -16,9 +16,7 @@ namespace PRN232.LMS.Repositories.Repositories
         }
         public async Task<RefreshToken?> GetByTokenAsync(string token)
         {
-            return await _context.RefreshTokens
-                .Include(x => x.User)
-                .FirstOrDefaultAsync(x => x.Token == token);
+            return await _context.RefreshTokens.Include(x => x.User).FirstOrDefaultAsync(x => x.Token == token);
         }
 
 

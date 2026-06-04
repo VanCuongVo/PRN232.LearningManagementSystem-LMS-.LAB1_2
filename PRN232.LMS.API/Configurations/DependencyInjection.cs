@@ -28,7 +28,7 @@ namespace PRN232.LMS.API.Configurations
             services.AddScoped<IEnrollmentRepositories, EnrollmentRepositories>();
             services.AddScoped<IEnrollmentService, EnrollmentService>();
 
-            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserRepositories, UserRepositories>();
             services.AddScoped<IRefreshTokenRepositories, RefreshTokenRepositories>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IJwtService, JwtService>();

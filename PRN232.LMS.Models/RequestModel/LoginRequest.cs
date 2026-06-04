@@ -7,8 +7,8 @@ namespace PRN232.LMS.Models.RequestModel
 {
     public class LoginRequest
     {
-        public string Username { get; set; } = string.Empty;
+        public string UserName { get; set; } = string.Empty;
 
-        public string Password { get; set; } = string.Empty;
+        public string PassWord { get; set; } = string.Empty;
     }
 }
