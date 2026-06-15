@@ -1,7 +1,5 @@
 using PRN232.LMS.API.Configurations;
 using PRN232.LMS.API.Middlewares;
-using PRN232.LMS.Models.Entities;
-using PRN232.LMS.Repositories.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,50 +23,7 @@ builder.Services.AddValidationConfiguration();
 builder.Services.AddCustomJsonOptions();
 
 var app = builder.Build();
-
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<LmsdbContext>();
-
-    if (!db.Users.Any())
-    {
-        db.Users.Add(new User
-        {
-            Username = "admin",
-            PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456"),
-            Role = "Admin",
-            Student = new Student
-            {
-                Fullname = "Admin User",
-                Email = "admin@gmail.com",
-                Dateofbirth = new DateTime(2000, 1, 1, 0, 0, 0, DateTimeKind.Utc),
-                Studentcode = "STU001",
-                Age = 25,
-                Phonenumber = "0900000000"
-            }
-        });
-
-        db.Users.Add(new User
-        {
-            Username = "user",
-            PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456"),
-            Role = "User",
-            Student = new Student
-            {
-                Fullname = "Normal User",
-                Email = "user@gmail.com",
-                Dateofbirth = new DateTime(2001, 5, 10, 0, 0, 0, DateTimeKind.Utc),
-                Studentcode = "STU002",
-                Age = 24,
-                Phonenumber = "0911111111"
-            }
-        });
-
-        db.SaveChanges();
-    }
-
-}
-
+await app.InitialiseDatabaseAsync();
 app.UseSwaggerConfiguration();
 app.UseRequestLogging();
 app.UseAuthentication();

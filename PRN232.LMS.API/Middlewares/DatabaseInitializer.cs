@@ -12,7 +12,7 @@ namespace PRN232.LMS.API.Middlewares
                 var db = scope.ServiceProvider.GetRequiredService<LmsdbContext>();
 
                 await db.Database.MigrateAsync();
-                // DbSeeder.Seed(db);
+                DbSeeder.Seed(db);
             }
         }
     }
