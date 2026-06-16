@@ -1,9 +1,9 @@
+using Microsoft.Extensions.Configuration;
 using PRN232.LMS.Models.Entities;
 using PRN232.LMS.Models.RequestModel;
 using PRN232.LMS.Models.ResponseModel;
 using PRN232.LMS.Repositories.IRepositories;
 using PRN232.LMS.Services.IServices;
-using Microsoft.Extensions.Configuration;
 
 namespace PRN232.LMS.Services.Services
 {
@@ -113,6 +113,35 @@ namespace PRN232.LMS.Services.Services
                     RefreshToken = newRefreshToken,
                     ExpiresIn = (int)TimeSpan.FromMinutes(double.Parse(_configuration.GetSection("Jwt")["AccessTokenExpirationMinutes"] ?? "60")).TotalSeconds
 
+                }
+            };
+        }
+
+        public async Task<ApiResponse<UserResponse>> RegisterAsync(CreateUserRequest request)
+        {
+            var user = new User
+            {
+                Username = request.Username,
+                Role = request.Role,
+                StudentId = request.StudentId,
+                IsActive = true,
+                CreatedAt = DateTime.UtcNow,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password)
+            };
+            await _unitOfWork.Users.AddAsync(user);
+            await _unitOfWork.SaveChangesAsync();
+
+            return new ApiResponse<UserResponse>
+            {
+                success = true,
+                message = "Register successfully",
+                Data = new UserResponse
+                {
+                    UserId = user.UserId,
+                    Username = user.Username,
+                    Role = user.Role,
+                    IsActive = user.IsActive,
+                    CreatedAt = user.CreatedAt
                 }
             };
         }

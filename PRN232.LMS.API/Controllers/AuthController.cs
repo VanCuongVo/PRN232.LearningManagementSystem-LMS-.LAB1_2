@@ -47,5 +47,26 @@ namespace PRN232.LMS.API.Controllers
 
             return Ok(result);
         }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] CreateUserRequest request)
+        {
+            var result = await _authService.RegisterAsync(request);
+            if (result == null)
+            {
+                return BadRequest(new
+                {
+                    success = false,
+                    message = "Username already exists"
+                });
+            }
+
+            return StatusCode(201, new
+            {
+                success = true,
+                message = "User registered successfully",
+                data = result
+            });
+        }
     }
 }
