@@ -147,7 +147,7 @@ namespace PRN232.LMS.API.Formatters
             }
 
             await response.WriteAsync(
-                data.ToString());
+                data.ToString() ?? "");
         }
 
         private string FormatValue(object? value)

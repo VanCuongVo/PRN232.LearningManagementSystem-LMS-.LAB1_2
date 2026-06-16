@@ -4,7 +4,7 @@ namespace PRN232.LMS.Services.IServices
 {
     public interface IJwtService
     {
-        string GenerateToken(UserRequest user);
+        Task<string> GenerateToken(UserRequest user);
         string GenerateRefreshToken();
     }
 }

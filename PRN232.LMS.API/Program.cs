@@ -22,12 +22,16 @@ builder.Services.AddFluentValidationConfig();
 builder.Services.AddValidationConfiguration();
 builder.Services.AddCustomJsonOptions();
 
+builder.Services.AddJwtConfiguration(builder.Configuration);
+
+builder.Services.AddAuthorization();
+
 var app = builder.Build();
 await app.InitialiseDatabaseAsync();
 app.UseSwaggerConfiguration();
-app.UseRequestLogging();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseGlobalException();
+app.UseRequestLogging();
 app.MapControllers();
 app.Run();

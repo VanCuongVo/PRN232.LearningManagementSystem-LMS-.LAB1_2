@@ -3,6 +3,7 @@ using PRN232.LMS.Models.RequestModel;
 using PRN232.LMS.Models.ResponseModel;
 using PRN232.LMS.Repositories.IRepositories;
 using PRN232.LMS.Services.IServices;
+using Microsoft.Extensions.Configuration;
 
 namespace PRN232.LMS.Services.Services
 {
@@ -10,18 +11,20 @@ namespace PRN232.LMS.Services.Services
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IJwtService _jwtService;
+        private readonly IConfiguration _configuration;
 
-        public AuthService(IUnitOfWork unitOfWork, IJwtService jwtService)
+        public AuthService(IUnitOfWork unitOfWork, IJwtService jwtService, IConfiguration configuration)
         {
             _unitOfWork = unitOfWork;
             _jwtService = jwtService;
+            _configuration = configuration;
         }
 
         public async Task<ApiResponse<LoginResponse>> LoginAsync(LoginRequest request)
         {
             var user = await _unitOfWork.Users.GetByUsernameAsync(request.UserName);
             if (user == null || !BCrypt.Net.BCrypt.Verify(request.PassWord, user.PasswordHash)) return null;
-            var token = _jwtService.GenerateToken(new UserRequest
+            var token = await _jwtService.GenerateToken(new UserRequest
             {
                 Id = user.UserId,
                 Name = user.Username,
@@ -33,7 +36,7 @@ namespace PRN232.LMS.Services.Services
             {
                 UserId = user.UserId,
                 Token = refreshToken,
-                ExpiryDate = DateTime.UtcNow.AddDays(7),
+                ExpiryDate = DateTime.UtcNow.AddDays(double.Parse(_configuration.GetSection("Jwt")["RefreshTokenExpirationDays"] ?? "7")),
                 IsRevoked = false
             });
             await _unitOfWork.SaveChangesAsync();
@@ -46,7 +49,7 @@ namespace PRN232.LMS.Services.Services
                 {
                     AccessToken = token,
                     RefreshToken = refreshToken,
-                    ExpiresIn = (int)TimeSpan.FromMinutes(60).TotalSeconds
+                    ExpiresIn = (int)TimeSpan.FromMinutes(double.Parse(_configuration.GetSection("Jwt")["AccessTokenExpirationMinutes"] ?? "60")).TotalSeconds
                 }
             };
         }
@@ -81,7 +84,7 @@ namespace PRN232.LMS.Services.Services
             }
 
             var user = existingToken.User; // lấy ra obj đang sở hữu cái resfeshToken
-            var accessToken = _jwtService.GenerateToken(new UserRequest
+            var accessToken = await _jwtService.GenerateToken(new UserRequest
             {
                 Id = user.UserId,
                 Name = user.Username,
@@ -96,7 +99,7 @@ namespace PRN232.LMS.Services.Services
             {
                 UserId = user.UserId,
                 Token = newRefreshToken,
-                ExpiryDate = DateTime.UtcNow.AddDays(7),
+                ExpiryDate = DateTime.UtcNow.AddDays(double.Parse(_configuration.GetSection("Jwt")["RefreshTokenExpirationDays"] ?? "7")),
                 IsRevoked = false
             });
             await _unitOfWork.SaveChangesAsync();
@@ -108,7 +111,7 @@ namespace PRN232.LMS.Services.Services
                 {
                     AccessToken = accessToken,
                     RefreshToken = newRefreshToken,
-                    ExpiresIn = (int)TimeSpan.FromMinutes(60).TotalSeconds
+                    ExpiresIn = (int)TimeSpan.FromMinutes(double.Parse(_configuration.GetSection("Jwt")["AccessTokenExpirationMinutes"] ?? "60")).TotalSeconds
 
                 }
             };

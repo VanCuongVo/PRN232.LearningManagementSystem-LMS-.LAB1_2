@@ -1,9 +1,11 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using PRN232.LMS.Models.RequestModel;
+using PRN232.LMS.Repositories.IRepositories;
 using PRN232.LMS.Services.IServices;
 
 namespace PRN232.LMS.Services.Services
@@ -11,6 +13,7 @@ namespace PRN232.LMS.Services.Services
     public class JwtService : IJwtService
     {
         private readonly IConfiguration _configuration;
+
 
         public JwtService(IConfiguration configuration)
         {
@@ -27,7 +30,7 @@ namespace PRN232.LMS.Services.Services
             }
         }
 
-        public string GenerateToken(UserRequest user)
+        public async Task<string> GenerateToken(UserRequest user)
         {
             // 1. Lấy cấu hình Secret Key
             var jwtSettings = _configuration.GetSection("Jwt");
@@ -39,15 +42,14 @@ namespace PRN232.LMS.Services.Services
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.Name ?? ""),
                 new Claim(ClaimTypes.Email, user.Email ?? ""),
-                new Claim("Role", (user.Role ?? "").ToString())
-
+                new Claim(ClaimTypes.Role, user.Role)
             };
 
             // 3. Tạo Security Token
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddMinutes(60), // Token hết hạn sau 60 phút
+                Expires = DateTime.UtcNow.AddMinutes(double.Parse(jwtSettings["AccessTokenExpirationMinutes"] ?? "60")),
                 Issuer = jwtSettings["Issuer"],
                 Audience = jwtSettings["Audience"],
                 SigningCredentials = new SigningCredentials(
@@ -60,5 +62,7 @@ namespace PRN232.LMS.Services.Services
 
             return tokenHandler.WriteToken(token);
         }
+
+
     }
 }

@@ -19,8 +19,8 @@ services:
       ConnectionStrings__DefaultConnection: >
         Host=postgres; Port=5432; Database=LMSDB; Username=postgres; Password=12345; Include Error Detail=true
 
-      Jwt__Issuer: https://localhost:7060
-      Jwt__Audience: https://localhost:7060
+      Jwt__Issuer: http://localhost:5016
+      Jwt__Audience: http://localhost:5016
       Jwt__Key: daylachuoibimatantoanvaduccungcapboimotchuyenbiagiuathukhoa
 
     ports:

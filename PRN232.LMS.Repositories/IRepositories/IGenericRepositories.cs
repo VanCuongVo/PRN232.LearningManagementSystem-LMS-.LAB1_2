@@ -1,4 +1,6 @@
-﻿namespace PRN232.LMS.Repositories.IRepositories
+﻿using System.Linq.Expressions;
+
+namespace PRN232.LMS.Repositories.IRepositories
 {
     public interface IGenericRepositories<T>
     {
@@ -8,6 +10,8 @@
         Task<T> UpdateAsync(T entity);
         Task<T> GetByIdAsync(object id);
         IQueryable<T> GetQueryable(); // trong quá trình build có search
+
+
 
     }
 }

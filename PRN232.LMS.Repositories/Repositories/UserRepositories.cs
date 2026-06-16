@@ -20,11 +20,9 @@ namespace PRN232.LMS.Repositories.Repositories
             return await _dbSet.FirstOrDefaultAsync(x => x.Student.Email == email);
         }
 
-
-
         public async Task<User?> GetByUsernameAsync(string username)
         {
-            return await _dbSet.FirstOrDefaultAsync(x => x.Username == username);
+            return await _dbSet.Include(x => x.Student).FirstOrDefaultAsync(x => x.Username == username);
         }
     }
 }
