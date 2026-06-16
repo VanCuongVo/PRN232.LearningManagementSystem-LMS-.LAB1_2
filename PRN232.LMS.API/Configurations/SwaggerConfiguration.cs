@@ -7,8 +7,7 @@ namespace PRN232.LMS.API.Configurations
         {
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
-                options.SwaggerDoc("v2", new OpenApiInfo { Title = "API", Version = "v2" });
+
                 // JWT Authentication
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {

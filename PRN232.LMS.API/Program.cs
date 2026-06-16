@@ -24,8 +24,9 @@ builder.Services.AddValidationConfiguration();
 builder.Services.AddCustomJsonOptions();
 
 builder.Services.AddJwtConfiguration(builder.Configuration);
-
 builder.Services.AddAuthorization();
+builder.Services.AddSwaggerGen();
+builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
 
 
 var app = builder.Build();

@@ -3,7 +3,7 @@ using PRN232.LMS.Models.RequestModel;
 using PRN232.LMS.Models.ResponseModel;
 using PRN232.LMS.Services.Interfaces;
 
-namespace PRN232.LMS.API.Controllers;
+namespace PRN232.LMS.API.Controllers.ApiV1;
 
 [ProducesResponseType(
     typeof(ApiResponse<object>),

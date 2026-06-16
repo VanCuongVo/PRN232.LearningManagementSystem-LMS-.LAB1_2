@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PRN232.LMS.Models.RequestModel;
 using PRN232.LMS.Models.ResponseModel;
 using PRN232.LMS.Services.IServices;
 
 
-namespace PRN232.LMS.API.Controllers.ApiV1
+namespace PRN232.LMS.API.Controllers.ApiV2
 {
     [ProducesResponseType(
     typeof(ApiResponse<object>),
@@ -16,7 +16,7 @@ namespace PRN232.LMS.API.Controllers.ApiV1
     "text/html"
 )]
     [ApiController]
-    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     [Route("api/v{version:apiVersion}/students")]
     public class StudentController : ControllerBase
     {
