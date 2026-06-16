@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
+
 namespace PRN232.LMS.API.Middlewares
 {
     public static class SwaggerMiddleware
@@ -5,11 +7,21 @@ namespace PRN232.LMS.API.Middlewares
         public static WebApplication UseSwaggerConfiguration(this WebApplication app)
         {
             app.UseSwagger();
-            app.UseSwaggerUI(c =>
+
+            app.UseSwaggerUI(options =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "PRN232.LMS API v1");
-                c.RoutePrefix = "swagger"; // serve UI at /swagger
+                var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+
+                foreach (var description in provider.ApiVersionDescriptions)
+                {
+                    options.SwaggerEndpoint(
+                    $"/swagger/{description.GroupName.ToLowerInvariant()}/swagger.json",
+                   description.GroupName.ToLowerInvariant()
+);
+                }
+                options.RoutePrefix = "swagger";
             });
+
             return app;
         }
     }

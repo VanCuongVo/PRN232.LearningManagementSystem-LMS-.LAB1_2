@@ -22,5 +22,4 @@ namespace PRN232.LMS.API.Configurations
             return services;
         }
     }
-
 }

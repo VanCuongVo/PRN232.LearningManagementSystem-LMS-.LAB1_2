@@ -44,7 +44,6 @@ namespace PRN232.LMS.API.Controllers
                 return NotFound(new { message = $"Student with id {id} not found" });
             }
             return Ok(result);
-
         }
 
         [HttpPost]

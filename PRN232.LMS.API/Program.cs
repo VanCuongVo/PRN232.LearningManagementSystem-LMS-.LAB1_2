@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using PRN232.LMS.API.Configurations;
 using PRN232.LMS.API.Middlewares;
 
@@ -26,9 +27,10 @@ builder.Services.AddJwtConfiguration(builder.Configuration);
 
 builder.Services.AddAuthorization();
 
+
 var app = builder.Build();
-await app.InitialiseDatabaseAsync();
 app.UseSwaggerConfiguration();
+await app.InitialiseDatabaseAsync();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseGlobalException();
