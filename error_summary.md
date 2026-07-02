@@ -12,7 +12,7 @@ Dưới đây là tổng hợp toàn bộ các lỗi mà hệ thống chấm đi
   1. Gộp toàn bộ thư mục của project `PRN232.LMS.Models` (Custom, Entities, Enum, RequestModel, ResponseModel) vào project `PRN232.LMS.Repositories`.
   2. Bổ sung các thư viện NuGet cần thiết (Entity Framework Core, Tools, Npgsql) vào project `PRN232.LMS.Repositories.csproj`.
   3. Xóa tham chiếu dự án đến `Models` cũ trong file `.sln` và xóa hẳn thư mục `PRN232.LMS.Models`.
-  4. Giữ nguyên namespace `PRN232.LMS.Models.*` của các file đã di chuyển để tránh việc phải sửa đổi code diện rộng ở các tầng API hay Services.
+  4. Cập nhật lại toàn bộ namespace của các file di chuyển từ `PRN232.LMS.Models` thành `PRN232.LMS.Repositories`, đồng thời cập nhật tất cả các khai báo sử dụng namespace này ở toàn bộ các file khác trong giải pháp để đảm bảo chuẩn kiến trúc.
 
 ---
 
