@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PRN232.LMS.Models.RequestModel;
 using PRN232.LMS.Models.ResponseModel;
@@ -17,6 +18,7 @@ namespace PRN232.LMS.API.Controllers.ApiV1;
 [ApiVersion("1.0")]
 [Route("api/v{version:apiVersion}/enrollments")]
 [Route("api/enrollments")]
+[Authorize]
 public class EnrollmentController : ControllerBase
 {
     private readonly IEnrollmentService _enrollmentService;
