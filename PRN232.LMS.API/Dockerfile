@@ -15,7 +15,6 @@ WORKDIR /src
 COPY ["PRN232.LMS.API/PRN232.LMS.API.csproj", "PRN232.LMS/"]
 COPY ["PRN232.LMS.Services/PRN232.LMS.Services.csproj", "PRN232.LMS.Services/"]
 COPY ["PRN232.LMS.Repositories/PRN232.LMS.Repositories.csproj", "PRN232.LMS.Repositories/"]
-COPY ["PRN232.LMS.Models/PRN232.LMS.Models.csproj", "PRN232.LMS.Models/"]
 RUN dotnet restore "./PRN232.LMS/PRN232.LMS.API.csproj"
 COPY . .
 WORKDIR "/src/PRN232.LMS.API"
