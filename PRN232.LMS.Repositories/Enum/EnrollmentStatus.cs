@@ -1,4 +1,4 @@
-namespace PRN232.LMS.Models.Enum
+﻿namespace PRN232.LMS.Repositories.Enum
 {
     public enum EnrollmentStatus
     {

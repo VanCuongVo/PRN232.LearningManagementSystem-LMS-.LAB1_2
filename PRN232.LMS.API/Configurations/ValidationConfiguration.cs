@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Mvc;
-using PRN232.LMS.Models.ResponseModel;
+﻿using Microsoft.AspNetCore.Mvc;
+using PRN232.LMS.Repositories.ResponseModel;
 
 namespace PRN232.LMS.API.Configurations;
 

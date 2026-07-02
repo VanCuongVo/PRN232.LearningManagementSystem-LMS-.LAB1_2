@@ -1,7 +1,7 @@
-using Microsoft.EntityFrameworkCore;
-using PRN232.LMS.Models.Entities;
-using PRN232.LMS.Models.RequestModel;
-using PRN232.LMS.Models.ResponseModel;
+﻿using Microsoft.EntityFrameworkCore;
+using PRN232.LMS.Repositories.Entities;
+using PRN232.LMS.Repositories.RequestModel;
+using PRN232.LMS.Repositories.ResponseModel;
 using PRN232.LMS.Repositories.IRepositories;
 using PRN232.LMS.Services.Extensions;
 using PRN232.LMS.Services.Utility;

@@ -1,4 +1,4 @@
-namespace PRN232.LMS.Models.ResponseModel
+﻿namespace PRN232.LMS.Repositories.ResponseModel
 {
     public class SubjectResponse
     {

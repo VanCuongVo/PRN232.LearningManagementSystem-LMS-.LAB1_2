@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Configuration;
-using PRN232.LMS.Models.Entities;
-using PRN232.LMS.Models.RequestModel;
-using PRN232.LMS.Models.ResponseModel;
+using PRN232.LMS.Repositories.Entities;
+using PRN232.LMS.Repositories.RequestModel;
+using PRN232.LMS.Repositories.ResponseModel;
 using PRN232.LMS.Repositories.IRepositories;
 using PRN232.LMS.Services.IServices;
 
@@ -32,7 +32,7 @@ namespace PRN232.LMS.Services.Services
                 Role = user.Role
             });
             var refreshToken = _jwtService.GenerateRefreshToken();
-            await _unitOfWork.RefreshTokens.AddAsync(new Models.Entities.RefreshToken
+            await _unitOfWork.RefreshTokens.AddAsync(new Repositories.Entities.RefreshToken
             {
                 UserId = user.UserId,
                 Token = refreshToken,

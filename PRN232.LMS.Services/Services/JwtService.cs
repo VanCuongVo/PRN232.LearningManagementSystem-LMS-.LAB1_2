@@ -1,10 +1,10 @@
-using System.IdentityModel.Tokens.Jwt;
+﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using PRN232.LMS.Models.RequestModel;
+using PRN232.LMS.Repositories.RequestModel;
 using PRN232.LMS.Repositories.IRepositories;
 using PRN232.LMS.Services.IServices;
 

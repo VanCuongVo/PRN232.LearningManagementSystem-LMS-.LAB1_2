@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PRN232.LMS.Models.Entities
+namespace PRN232.LMS.Repositories.Entities
 {
     public class User
     {

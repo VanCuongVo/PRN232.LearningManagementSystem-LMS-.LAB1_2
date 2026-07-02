@@ -1,6 +1,6 @@
-using FluentValidation;
+﻿using FluentValidation;
 using FluentValidation.AspNetCore;
-using PRN232.LMS.Models.RequestModel;
+using PRN232.LMS.Repositories.RequestModel;
 using PRN232.LMS.Services.Validators;
 using PRN232.LMS.Services.Validators.CourseValidators;
 using PRN232.LMS.Services.Validators.SubjectValidators;

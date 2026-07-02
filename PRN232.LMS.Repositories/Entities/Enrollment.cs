@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using PRN232.LMS.Models.Enum;
+using PRN232.LMS.Repositories.Enum;
 
-namespace PRN232.LMS.Models.Entities;
+namespace PRN232.LMS.Repositories.Entities;
 
 public partial class Enrollment
 {

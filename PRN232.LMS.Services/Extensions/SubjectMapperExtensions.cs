@@ -1,5 +1,5 @@
-using PRN232.LMS.Models.Entities;
-using PRN232.LMS.Models.ResponseModel;
+﻿using PRN232.LMS.Repositories.Entities;
+using PRN232.LMS.Repositories.ResponseModel;
 
 namespace PRN232.LMS.Services.Extensions
 {

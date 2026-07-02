@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PRN232.LMS.Models.Entities;
+namespace PRN232.LMS.Repositories.Entities;
 
 public partial class Student
 {

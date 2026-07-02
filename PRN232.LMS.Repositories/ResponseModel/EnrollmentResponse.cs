@@ -1,7 +1,7 @@
+﻿
+using PRN232.LMS.Repositories.Enum;
 
-using PRN232.LMS.Models.Enum;
-
-namespace PRN232.LMS.Models.ResponseModel
+namespace PRN232.LMS.Repositories.ResponseModel
 {
     public class EnrollmentResponse
     {

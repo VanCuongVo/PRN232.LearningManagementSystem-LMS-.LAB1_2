@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PRN232.LMS.Models.ResponseModel
+namespace PRN232.LMS.Repositories.ResponseModel
 {
     public class LoginResponse
     {

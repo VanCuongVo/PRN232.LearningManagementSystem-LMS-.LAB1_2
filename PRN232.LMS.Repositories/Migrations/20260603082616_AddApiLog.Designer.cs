@@ -25,7 +25,7 @@ namespace PRN232.LMS.Repositories.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("PRN232.LMS.Models.Entities.Course", b =>
+            modelBuilder.Entity("PRN232.LMS.Repositories.Entities.Course", b =>
                 {
                     b.Property<int>("Courseid")
                         .ValueGeneratedOnAdd()
@@ -51,7 +51,7 @@ namespace PRN232.LMS.Repositories.Migrations
                     b.ToTable("Courses");
                 });
 
-            modelBuilder.Entity("PRN232.LMS.Models.Entities.Enrollment", b =>
+            modelBuilder.Entity("PRN232.LMS.Repositories.Entities.Enrollment", b =>
                 {
                     b.Property<int>("Enrollmentid")
                         .ValueGeneratedOnAdd()
@@ -80,7 +80,7 @@ namespace PRN232.LMS.Repositories.Migrations
                     b.ToTable("Enrollments");
                 });
 
-            modelBuilder.Entity("PRN232.LMS.Models.Entities.Semester", b =>
+            modelBuilder.Entity("PRN232.LMS.Repositories.Entities.Semester", b =>
                 {
                     b.Property<int>("Semesterid")
                         .ValueGeneratedOnAdd()
@@ -103,7 +103,7 @@ namespace PRN232.LMS.Repositories.Migrations
                     b.ToTable("Semesters");
                 });
 
-            modelBuilder.Entity("PRN232.LMS.Models.Entities.Student", b =>
+            modelBuilder.Entity("PRN232.LMS.Repositories.Entities.Student", b =>
                 {
                     b.Property<int>("Studentid")
                         .ValueGeneratedOnAdd()
@@ -138,7 +138,7 @@ namespace PRN232.LMS.Repositories.Migrations
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("PRN232.LMS.Models.Entities.Subject", b =>
+            modelBuilder.Entity("PRN232.LMS.Repositories.Entities.Subject", b =>
                 {
                     b.Property<int>("Subjectid")
                         .ValueGeneratedOnAdd()
@@ -162,9 +162,9 @@ namespace PRN232.LMS.Repositories.Migrations
                     b.ToTable("Subjects");
                 });
 
-            modelBuilder.Entity("PRN232.LMS.Models.Entities.Course", b =>
+            modelBuilder.Entity("PRN232.LMS.Repositories.Entities.Course", b =>
                 {
-                    b.HasOne("PRN232.LMS.Models.Entities.Semester", "Semester")
+                    b.HasOne("PRN232.LMS.Repositories.Entities.Semester", "Semester")
                         .WithMany("Courses")
                         .HasForeignKey("Semesterid")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -173,15 +173,15 @@ namespace PRN232.LMS.Repositories.Migrations
                     b.Navigation("Semester");
                 });
 
-            modelBuilder.Entity("PRN232.LMS.Models.Entities.Enrollment", b =>
+            modelBuilder.Entity("PRN232.LMS.Repositories.Entities.Enrollment", b =>
                 {
-                    b.HasOne("PRN232.LMS.Models.Entities.Course", "Course")
+                    b.HasOne("PRN232.LMS.Repositories.Entities.Course", "Course")
                         .WithMany("Enrollments")
                         .HasForeignKey("Courseid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PRN232.LMS.Models.Entities.Student", "Student")
+                    b.HasOne("PRN232.LMS.Repositories.Entities.Student", "Student")
                         .WithMany("Enrollments")
                         .HasForeignKey("Studentid")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -192,17 +192,17 @@ namespace PRN232.LMS.Repositories.Migrations
                     b.Navigation("Student");
                 });
 
-            modelBuilder.Entity("PRN232.LMS.Models.Entities.Course", b =>
+            modelBuilder.Entity("PRN232.LMS.Repositories.Entities.Course", b =>
                 {
                     b.Navigation("Enrollments");
                 });
 
-            modelBuilder.Entity("PRN232.LMS.Models.Entities.Semester", b =>
+            modelBuilder.Entity("PRN232.LMS.Repositories.Entities.Semester", b =>
                 {
                     b.Navigation("Courses");
                 });
 
-            modelBuilder.Entity("PRN232.LMS.Models.Entities.Student", b =>
+            modelBuilder.Entity("PRN232.LMS.Repositories.Entities.Student", b =>
                 {
                     b.Navigation("Enrollments");
                 });

@@ -1,7 +1,7 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using PRN232.LMS.Services.Custom;
 
-namespace PRN232.LMS.Models.RequestModel
+namespace PRN232.LMS.Repositories.RequestModel
 {
     public class CreateStudentRequest
     {

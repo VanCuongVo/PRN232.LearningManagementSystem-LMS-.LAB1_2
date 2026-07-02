@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PRN232.LMS.Models.RequestModel;
-using PRN232.LMS.Models.ResponseModel;
+using Microsoft.EntityFrameworkCore;
+using PRN232.LMS.Repositories.RequestModel;
+using PRN232.LMS.Repositories.ResponseModel;
 using PRN232.LMS.Repositories.IRepositories;
 using PRN232.LMS.Services.Extensions;
 using PRN232.LMS.Services.IServices;
@@ -20,7 +20,7 @@ namespace PRN232.LMS.Services.Services
         public async Task<ApiResponse<StudentResponse>> CreateAsync(CreateStudentRequest request)
         {
 
-            var createStudentRequest = new Models.Entities.Student
+            var createStudentRequest = new Repositories.Entities.Student
             {
                 Dateofbirth = DateTime.SpecifyKind(request.DateOfBirth, DateTimeKind.Utc),
                 Email = request.Email,

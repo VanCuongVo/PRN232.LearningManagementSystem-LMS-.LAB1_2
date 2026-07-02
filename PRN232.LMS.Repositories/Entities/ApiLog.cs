@@ -1,4 +1,4 @@
-namespace PRN232.LMS.Models.Entities
+﻿namespace PRN232.LMS.Repositories.Entities
 {
     public class ApiLog
     {

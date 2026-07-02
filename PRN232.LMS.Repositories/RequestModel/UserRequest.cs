@@ -1,5 +1,5 @@
-
-namespace PRN232.LMS.Models.RequestModel
+﻿
+namespace PRN232.LMS.Repositories.RequestModel
 {
     public class UserRequest
     {

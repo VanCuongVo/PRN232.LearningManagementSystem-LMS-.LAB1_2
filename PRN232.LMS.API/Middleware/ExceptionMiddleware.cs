@@ -1,7 +1,7 @@
-using System.Text;
+﻿using System.Text;
 using System.Text.Json;
 using System.Xml.Serialization;
-using PRN232.LMS.Models.ResponseModel;
+using PRN232.LMS.Repositories.ResponseModel;
 
 namespace PRN232.LMS.API.Middleware
 {

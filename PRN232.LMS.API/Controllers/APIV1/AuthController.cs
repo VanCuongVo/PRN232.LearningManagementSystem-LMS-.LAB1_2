@@ -1,9 +1,9 @@
-
+﻿
 
 
 using Microsoft.AspNetCore.Mvc;
-using PRN232.LMS.Models.RequestModel;
-using PRN232.LMS.Models.ResponseModel;
+using PRN232.LMS.Repositories.RequestModel;
+using PRN232.LMS.Repositories.ResponseModel;
 using PRN232.LMS.Services.IServices;
 
 namespace PRN232.LMS.API.Controllers.ApiV1

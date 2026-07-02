@@ -1,7 +1,7 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
-namespace PRN232.LMS.Models.Custom
+namespace PRN232.LMS.Repositories.Custom
 {
     public class CoursecodeAttribute : ValidationAttribute
     {

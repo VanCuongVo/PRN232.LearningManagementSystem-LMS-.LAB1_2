@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using PRN232.LMS.Models.Entities;
+using PRN232.LMS.Repositories.Entities;
 
 namespace PRN232.LMS.Repositories.Data;
 
