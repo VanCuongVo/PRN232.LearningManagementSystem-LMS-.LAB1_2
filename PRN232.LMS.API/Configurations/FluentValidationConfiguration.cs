@@ -20,6 +20,8 @@ namespace PRN232.LMS.API.Configurations
             services.AddValidatorsFromAssemblyContaining<UpdateCourseRequestValidator>();
             services.AddValidatorsFromAssemblyContaining<CreateSubjectRequestValidator>();
             services.AddValidatorsFromAssemblyContaining<UpdateSubjectRequestValidator>();
+            services.AddValidatorsFromAssemblyContaining<CreateEnrollmentRequestValidator>();
+            services.AddValidatorsFromAssemblyContaining<UpdateEnrollmentRequestValidator>();
             return services;
         }
     }

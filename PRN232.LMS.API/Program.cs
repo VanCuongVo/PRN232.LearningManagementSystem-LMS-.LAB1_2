@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using PRN232.LMS.API.Configurations;
-using PRN232.LMS.API.Middlewares;
+using PRN232.LMS.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +27,6 @@ builder.Services.AddJwtConfiguration(builder.Configuration);
 builder.Services.AddAuthorization();
 builder.Services.AddSwaggerGen();
 builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
-
 
 var app = builder.Build();
 app.UseSwaggerConfiguration();

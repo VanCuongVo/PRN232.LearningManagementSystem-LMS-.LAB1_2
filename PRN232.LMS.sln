@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.37111.16
@@ -9,8 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRN232.LMS.Services", "PRN2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRN232.LMS.Repositories", "PRN232.LMS.Repositories\PRN232.LMS.Repositories.csproj", "{6F977630-3B1E-4788-8FB3-0984BEC4C9C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRN232.LMS.Models", "PRN232.LMS.Models\PRN232.LMS.Models.csproj", "{FC7E0996-45E8-4ED6-B583-0DB2CE2C7159}"
-EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +28,7 @@ Global
 		{6F977630-3B1E-4788-8FB3-0984BEC4C9C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F977630-3B1E-4788-8FB3-0984BEC4C9C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F977630-3B1E-4788-8FB3-0984BEC4C9C3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC7E0996-45E8-4ED6-B583-0DB2CE2C7159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC7E0996-45E8-4ED6-B583-0DB2CE2C7159}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC7E0996-45E8-4ED6-B583-0DB2CE2C7159}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC7E0996-45E8-4ED6-B583-0DB2CE2C7159}.Release|Any CPU.Build.0 = Release|Any CPU
+
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

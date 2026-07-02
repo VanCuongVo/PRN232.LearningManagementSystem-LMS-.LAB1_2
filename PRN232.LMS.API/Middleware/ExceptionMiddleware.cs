@@ -3,7 +3,7 @@ using System.Text.Json;
 using System.Xml.Serialization;
 using PRN232.LMS.Models.ResponseModel;
 
-namespace PRN232.LMS.API.Middlewares
+namespace PRN232.LMS.API.Middleware
 {
     public class ExceptionMiddleware
     {

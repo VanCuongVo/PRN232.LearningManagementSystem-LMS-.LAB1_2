@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using PRN232.LMS.Models.Entities;
 using PRN232.LMS.Repositories.Data;
-namespace PRN232.LMS.API.Middlewares
+namespace PRN232.LMS.API.Middleware
 {
     public class RequestLoggingMiddleware
     {

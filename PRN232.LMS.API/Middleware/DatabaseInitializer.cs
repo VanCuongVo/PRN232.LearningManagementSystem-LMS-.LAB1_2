@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PRN232.LMS.Repositories.Data;
 
-namespace PRN232.LMS.API.Middlewares
+namespace PRN232.LMS.API.Middleware
 {
     public static class DatabaseInitializer
     {

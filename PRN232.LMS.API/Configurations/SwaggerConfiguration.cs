@@ -7,7 +7,6 @@ namespace PRN232.LMS.API.Configurations
         {
             services.AddSwaggerGen(options =>
             {
-
                 // JWT Authentication
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {

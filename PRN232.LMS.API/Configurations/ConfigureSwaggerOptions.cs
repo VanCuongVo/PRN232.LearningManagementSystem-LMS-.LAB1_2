@@ -4,8 +4,6 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace PRN232.LMS.API.Configurations
 {
-
-
     public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
     {
         private readonly IApiVersionDescriptionProvider _provider;
