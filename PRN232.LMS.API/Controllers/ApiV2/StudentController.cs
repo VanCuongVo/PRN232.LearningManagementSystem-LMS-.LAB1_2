@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PRN232.LMS.Repositories.RequestModel;
 using PRN232.LMS.Repositories.ResponseModel;
@@ -101,7 +101,12 @@ namespace PRN232.LMS.API.Controllers.ApiV2
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {
-            await _studentService.DeleteAsync(id);
+            var result = await _studentService.DeleteAsync(id);
+
+            if (!result.success)
+            {
+                return NotFound(result);
+            }
 
             return NoContent();
         }

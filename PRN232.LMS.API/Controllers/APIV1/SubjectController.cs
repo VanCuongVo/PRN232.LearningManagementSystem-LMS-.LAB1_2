@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PRN232.LMS.Repositories.RequestModel;
 using PRN232.LMS.Repositories.ResponseModel;
@@ -40,6 +40,10 @@ namespace PRN232.LMS.API.Controllers.ApiV1
         public async Task<ActionResult> GetById(int id)
         {
             var result = await _subjectService.GetByIdAysnc(id);
+            if (result == null)
+            {
+                return NotFound(new { message = $"Subject with id {id} not found" });
+            }
             return Ok(result);
         }
 
@@ -56,14 +60,22 @@ namespace PRN232.LMS.API.Controllers.ApiV1
         [HttpPut("{id:int}")]
         public async Task<ActionResult> Update(int id, [FromBody] UpdateSubjectRequest request)
         {
-            await _subjectService.UpdateAsync(id, request);
+            var result = await _subjectService.UpdateAsync(id, request);
+            if (!result.success)
+            {
+                return NotFound(result);
+            }
             return NoContent();
         }
         [Authorize(Roles = "Admin")]
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)
         {
-            await _subjectService.DeleteAsync(id);
+            var result = await _subjectService.DeleteAsync(id);
+            if (!result.success)
+            {
+                return NotFound(result);
+            }
             return NoContent();
         }
     }
