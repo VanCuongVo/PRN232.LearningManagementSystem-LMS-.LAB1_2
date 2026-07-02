@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using PRN232.LMS.Services.Custom;
+using System.ComponentModel.DataAnnotations;
+using PRN232.LMS.Repositories.Custom;
 
 namespace PRN232.LMS.Repositories.RequestModel
 {
