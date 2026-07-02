@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PRN232.LMS.Models.RequestModel;
 using PRN232.LMS.Models.ResponseModel;
@@ -18,6 +18,7 @@ namespace PRN232.LMS.API.Controllers.ApiV1
     [ApiController]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/students")]
+    [Route("api/students")]
     public class StudentController : ControllerBase
     {
         private readonly IStudentService _studentService;

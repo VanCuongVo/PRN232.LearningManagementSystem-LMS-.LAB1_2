@@ -140,13 +140,14 @@ namespace PRN232.LMS.Repositories.Data
             if (context.Users.Any()) return;
 
             var students = context.Students.ToList();
+            var passwordHash = BCrypt.Net.BCrypt.HashPassword("123456");
 
             var users = new List<User>
             {
                 new User
                 {
                     Username = "admin",
-                    PasswordHash = "AQAAAAIAAYagAAAAEL9c5fR0x==", // placeholder hash
+                    PasswordHash = passwordHash,
                     Role = "Admin",
                     IsActive = true,
                     CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 1), DateTimeKind.Utc)
@@ -154,7 +155,7 @@ namespace PRN232.LMS.Repositories.Data
                 new User
                 {
                     Username = "lecturer01",
-                    PasswordHash = "AQAAAAIAAYagAAAAEL9c5fR0x==",
+                    PasswordHash = passwordHash,
                     Role = "Lecturer",
                     IsActive = true,
                     CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 15), DateTimeKind.Utc)
@@ -162,7 +163,7 @@ namespace PRN232.LMS.Repositories.Data
                 new User
                 {
                     Username = "lecturer02",
-                    PasswordHash = "AQAAAAIAAYagAAAAEL9c5fR0x==",
+                    PasswordHash = passwordHash,
                     Role = "Lecturer",
                     IsActive = true,
                     CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 2, 1), DateTimeKind.Utc)
@@ -170,7 +171,7 @@ namespace PRN232.LMS.Repositories.Data
                 new User
                 {
                     Username = "cuonglh",
-                    PasswordHash = "AQAAAAIAAYagAAAAEL9c5fR0x==",
+                    PasswordHash = passwordHash,
                     Role = "Student",
                     IsActive = true,
                     StudentId = students.FirstOrDefault(s => s.Studentcode == "SE171001")?.Studentid,
@@ -179,7 +180,7 @@ namespace PRN232.LMS.Repositories.Data
                 new User
                 {
                     Username = "ducpm",
-                    PasswordHash = "AQAAAAIAAYagAAAAEL9c5fR0x==",
+                    PasswordHash = passwordHash,
                     Role = "Student",
                     IsActive = true,
                     StudentId = students.FirstOrDefault(s => s.Studentcode == "SE171002")?.Studentid,
@@ -188,7 +189,7 @@ namespace PRN232.LMS.Repositories.Data
                 new User
                 {
                     Username = "hoavt",
-                    PasswordHash = "AQAAAAIAAYagAAAAEL9c5fR0x==",
+                    PasswordHash = passwordHash,
                     Role = "Student",
                     IsActive = true,
                     StudentId = students.FirstOrDefault(s => s.Studentcode == "SE171003")?.Studentid,
@@ -197,7 +198,7 @@ namespace PRN232.LMS.Repositories.Data
                 new User
                 {
                     Username = "khanhdq",
-                    PasswordHash = "AQAAAAIAAYagAAAAEL9c5fR0x==",
+                    PasswordHash = passwordHash,
                     Role = "Student",
                     IsActive = true,
                     StudentId = students.FirstOrDefault(s => s.Studentcode == "SE171004")?.Studentid,
@@ -206,7 +207,7 @@ namespace PRN232.LMS.Repositories.Data
                 new User
                 {
                     Username = "longbt",
-                    PasswordHash = "AQAAAAIAAYagAAAAEL9c5fR0x==",
+                    PasswordHash = passwordHash,
                     Role = "Student",
                     IsActive = true,
                     StudentId = students.FirstOrDefault(s => s.Studentcode == "SE171005")?.Studentid,
